@@ -130,15 +130,23 @@ class _HomePageState extends State<HomePage> {
             ),
             SizedBox(height: 20,),
             listRecent(),
-
             SizedBox(height: 100,),
           ],
         ),
       );
   }
 
+  int selectedCategory = 0;
   listCategories(){
-    List<Widget> lists = List.generate(foodCategories.length, (index) => CategoryItem(data: foodCategories[index]));
+    List<Widget> lists = List.generate(categories.length, 
+      (index) => CategoryItem(data: categories[index], selected: index == selectedCategory,
+        onTap: (){
+          setState(() {
+            selectedCategory =  index;
+          });
+        },
+      )
+    );
     return
       SingleChildScrollView(
         scrollDirection: Axis.horizontal,

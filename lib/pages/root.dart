@@ -23,7 +23,7 @@ class _RootAppState extends State<RootApp> {
     },
     {
       "icon" : Icons.search_outlined,
-      "active_icon" : Icons.saved_search,
+      "active_icon" : Icons.search,
       "page" : ExplorePage(),
       "title" : ""
     },

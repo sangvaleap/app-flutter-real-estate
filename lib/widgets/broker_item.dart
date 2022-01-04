@@ -29,7 +29,7 @@ class BrokerItem extends StatelessWidget {
         children: [
           Row(
             children: [
-              CustomImage(data["image"], width: 30, height: 30,),
+              CustomImage(data["image"], width: 35, height: 35,),
               SizedBox(width: 10,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

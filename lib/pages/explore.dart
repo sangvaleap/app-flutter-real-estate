@@ -90,11 +90,17 @@ class _ExplorePageState extends State<ExplorePage> {
       );
   }
 
+  int selectedCategory = 0;
   listCompanies(){
     List<Widget> lists = List.generate(companies.length, 
       (index) => CompanyItem(
         data: companies[index], color: listColors[index % 10],
-        selected: index == 0,
+        selected: index == selectedCategory,
+        onTap: (){
+          setState(() {
+            selectedCategory =  index;
+          });
+        },
       )
     );
     

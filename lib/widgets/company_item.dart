@@ -17,7 +17,7 @@ class CompanyItem extends StatelessWidget {
         child: Container(
           width: 110, height: 110,
           margin: EdgeInsets.only(right: 15),
-          padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
+          padding: EdgeInsets.fromLTRB(5, 10, 5, 0),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(10),
@@ -37,7 +37,7 @@ class CompanyItem extends StatelessWidget {
                 padding: EdgeInsets.all(7),
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
-                  color: color.withOpacity(.2)
+                  color: color.withOpacity(.3)
                 ),
                 child: Icon(data["icon"], color: color),
               ),

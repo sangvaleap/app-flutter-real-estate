@@ -25,9 +25,8 @@ class BottomBarItem extends StatelessWidget {
             Container(
               padding: EdgeInsets.all(7),
               decoration: BoxDecoration(
-                // shape: BoxShape.circle,
                 borderRadius: BorderRadius.circular(50),
-                color: isActive ? primary.withOpacity(0) : Colors.transparent,
+                color: isActive ? primary.withOpacity(.1) : Colors.transparent,
               ),
               child: Icon(icon, size: 25, color: isActive ? activeColor : color)
             ),

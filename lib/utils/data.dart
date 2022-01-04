@@ -37,11 +37,11 @@ List populars = [
 
 List recommended = [
   {
-    "image": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "name": "Convertible Studio",
-    "price": "\$150k",
-    "location": "Phnom Penh, Cambodia",
-    "is_favorited": false,
+    "image": "https://images.unsplash.com/photo-1592595896616-c37162298647?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "name": "Garden House",
+    "price": "\$180k",
+    "location": "Phnom Penh",
+    "is_favorited": true,
   },
   {
     "image": "https://images.unsplash.com/photo-1576941089067-2de3c901e126?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
@@ -61,11 +61,18 @@ List recommended = [
 
 List recents = [
   {
-    "image": "https://images.unsplash.com/photo-1592595896616-c37162298647?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "name": "Garden House",
+    "image": "https://images.unsplash.com/photo-1549517045-bc93de075e53?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "name": "Double Villa",
     "price": "\$180k",
     "location": "Phnom Penh",
-    "is_favorited": true,
+    "is_favorited": false,
+  },
+  {
+    "image": "https://images.unsplash.com/photo-1598928506311-c55ded91a20c?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+    "name": "Convertible Studio",
+    "price": "\$150k",
+    "location": "Phnom Penh",
+    "is_favorited": false,
   },
   {
     "image": "https://images.unsplash.com/photo-1576941089067-2de3c901e126?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
@@ -74,31 +81,24 @@ List recents = [
     "location": "Phnom Penh",
     "is_favorited": false,
   },
-  {
-    "image": "https://images.unsplash.com/photo-1549517045-bc93de075e53?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8Zm9vZHxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "name": "Double Villa",
-    "price": "\$180k",
-    "location": "Phnom Penh",
-    "is_favorited": false,
-  },
 ];
 
-List foodCategories = [
+List categories = [
   {
     "name" : "All",
     "icon" :  FontAwesomeIcons.boxes
   },
   {
-    "name" : "Building",
-    "icon" :  FontAwesomeIcons.building
+    "name" : "Villa",
+    "icon" :  FontAwesomeIcons.university
   },
   {
     "name" : "Shop",
     "icon" :  FontAwesomeIcons.storeAlt
   },
   {
-    "name" : "Villa",
-    "icon" :  FontAwesomeIcons.university
+    "name" : "Building",
+    "icon" :  FontAwesomeIcons.building
   },
   {
     "name" : "House",
