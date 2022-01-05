@@ -1,6 +1,6 @@
 # Real Estate App - Flutter
 
-- Preview video: https://www.youtube.com/watch?v=CSj-c8cegkY
+- Preview video: https://youtu.be/11u0KeymAAs
 - [My Twitter](https://twitter.com/sangvaleap)
 
 - [My Patreon](https://www.patreon.com/sangvaleap)
