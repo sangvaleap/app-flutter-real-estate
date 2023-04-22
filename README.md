@@ -1,13 +1,10 @@
 # Real Estate App - Flutter
 
 - Preview video: https://youtu.be/11u0KeymAAs
-- [My Twitter](https://twitter.com/sangvaleap)
 
+- [My Twitter](https://twitter.com/sangvaleap)
 - [My Patreon](https://www.patreon.com/sangvaleap)
 - [My Linkedin](https://www.linkedin.com/in/sangvaleap-vanny-353b25aa/)
-- [My Upwork](https://www.upwork.com/freelancers/~01482fe63544bbcb48)
-
-- My Email: sangvaleap.vanny@gmail.com
 
 => To access complete source code, please join [My Patreon](https://www.patreon.com/sangvaleap)
 
