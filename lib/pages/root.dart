@@ -6,103 +6,99 @@ import 'package:real_estate/widgets/bottombar_item.dart';
 import 'home.dart';
 
 class RootApp extends StatefulWidget {
-  const RootApp({ Key? key }) : super(key: key);
+  const RootApp({Key? key}) : super(key: key);
 
   @override
   _RootAppState createState() => _RootAppState();
 }
 
 class _RootAppState extends State<RootApp> {
-  int activeTab = 0;
-  List barItems = [
+  int _activeTab = 0;
+  final List _barItems = [
     {
-      "icon" : Icons.home_outlined,
-      "active_icon" : Icons.home_rounded,
-      "page" : HomePage(),
-      "title" : ""
+      "icon": Icons.home_outlined,
+      "active_icon": Icons.home_rounded,
+      "page": HomePage(),
     },
     {
-      "icon" : Icons.search_outlined,
-      "active_icon" : Icons.search,
-      "page" : ExplorePage(),
-      "title" : ""
+      "icon": Icons.search_outlined,
+      "active_icon": Icons.search,
+      "page": ExplorePage(),
     },
     {
-      "icon" : Icons.favorite_border,
-      "active_icon" : Icons.favorite_outlined,
-      "page" : HomePage(),
-      "title" : ""
+      "icon": Icons.favorite_border,
+      "active_icon": Icons.favorite_outlined,
+      "page": HomePage(),
     },
     {
-      "icon" : Icons.forum_outlined,
-      "active_icon" : Icons.forum_rounded,
-      "page" : HomePage(),
-      "title" : ""
+      "icon": Icons.forum_outlined,
+      "active_icon": Icons.forum_rounded,
+      "page": HomePage(),
     },
     {
-      "icon" : Icons.settings_outlined,
-      "active_icon" : Icons.settings_rounded,
-      "page" : HomePage(),
-      "title" : ""
+      "icon": Icons.settings_outlined,
+      "active_icon": Icons.settings_rounded,
+      "page": HomePage(),
     },
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: appBgColor,
-      body: getBarPage(),
-      // bottomNavigationBar: getBottomBar1()
-      floatingActionButton: getBottomBar(),
-      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterDocked,
+      backgroundColor: AppColor.appBgColor,
+      body: _buildPage(),
+      floatingActionButton: _buildBottomBar(),
+      floatingActionButtonLocation:
+          FloatingActionButtonLocation.miniCenterDocked,
     );
   }
 
-  Widget getBarPage(){
-    return 
-      IndexedStack(
-        index: activeTab,
-        children: 
-          List.generate(barItems.length, 
-            (index) => barItems[index]["page"]
-          )
-      );
+  Widget _buildPage() {
+    return IndexedStack(
+      index: _activeTab,
+      children: List.generate(
+        _barItems.length,
+        (index) => _barItems[index]["page"],
+      ),
+    );
   }
 
-  Widget getBottomBar() {
+  Widget _buildBottomBar() {
     return Container(
-      height: 55, width: double.infinity,
-      margin: EdgeInsets.fromLTRB(15, 0, 15, 0),
+      height: 55,
+      width: double.infinity,
+      margin: EdgeInsets.symmetric(horizontal: 15),
       decoration: BoxDecoration(
-        color: bottomBarColor,
+        color: AppColor.bottomBarColor,
         borderRadius: BorderRadius.circular(20),
-        // borderRadius: BorderRadius.only(
-        //   topLeft: Radius.circular(20), 
-        //   topRight: Radius.circular(20)
-        // ), 
         boxShadow: [
           BoxShadow(
-            color: shadowColor.withOpacity(0.1),
+            color: AppColor.shadowColor.withOpacity(0.1),
             blurRadius: 1,
             spreadRadius: 1,
-            offset: Offset(0, 1)
+            offset: Offset(0, 1),
           )
-        ]
+        ],
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         crossAxisAlignment: CrossAxisAlignment.end,
-        children: 
-          List.generate(barItems.length, 
-            (index) => BottomBarItem( activeTab == index ? barItems[index]["active_icon"] : barItems[index]["icon"], "", isActive: activeTab == index, activeColor: primary,
-              onTap: () {
-                setState(() {
-                  activeTab = index;
-                });
-              },
-            )
-          )
+        children: List.generate(
+          _barItems.length,
+          (index) => BottomBarItem(
+            _activeTab == index
+                ? _barItems[index]["active_icon"]
+                : _barItems[index]["icon"],
+            isActive: _activeTab == index,
+            activeColor: AppColor.primary,
+            onTap: () {
+              setState(() {
+                _activeTab = index;
+              });
+            },
+          ),
         ),
+      ),
     );
   }
 }

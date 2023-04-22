@@ -11,7 +11,7 @@ import 'package:real_estate/widgets/recent_item.dart';
 import 'package:real_estate/widgets/recommend_item.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({ Key? key }) : super(key: key);
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -20,184 +20,241 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return 
-      CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            backgroundColor: appBgColor,
-            pinned: true,
-            snap: true,
-            floating: true,
-            title: getHeader(),
-          ),
-          SliverToBoxAdapter(
-            child: getBody()
-          )
-        ],
-      );
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverAppBar(
+          backgroundColor: AppColor.appBgColor,
+          pinned: true,
+          snap: true,
+          floating: true,
+          title: _buildHeader(),
+        ),
+        SliverToBoxAdapter(child: _buildBody())
+      ],
+    );
   }
 
-  getHeader(){
-    return
-      Container(
-        child: Column(
+  _buildHeader() {
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text("Hello!", 
-                      style: TextStyle(color: darker, fontSize: 14, fontWeight: FontWeight.w500),
-                    ),
-                    Text("Sangvaleap",
-                      style: TextStyle(color: Colors.black87, fontSize: 17, fontWeight: FontWeight.w600),
-                    ),
-                  ],
+                Text(
+                  "Hello!",
+                  style: TextStyle(
+                    color: AppColor.darker,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
-                CustomImage(profile, 
-                  width: 35, height: 35, trBackground: true, borderColor: primary, radius: 10,
+                Text(
+                  "Sangvaleap",
+                  style: TextStyle(
+                    color: Colors.black87,
+                    fontSize: 17,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ],
             ),
+            CustomImage(
+              profile,
+              width: 35,
+              height: 35,
+              trBackground: true,
+              borderColor: AppColor.primary,
+              radius: 10,
+            ),
           ],
         ),
-      );
+      ],
+    );
   }
 
-  getBody(){
-    return
-      SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 15,),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: CustomTextBox(hint: "Search", prefix: Icon(Icons.search, color: Colors.grey), )
-                  ),
-                  SizedBox(width: 10,),
-                  IconBox(child: Icon(Icons.filter_list_rounded, color: Colors.white), bgColor: secondary, radius: 10,)
-                ],
-              ),
+  _buildBody() {
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const SizedBox(
+            height: 15,
+          ),
+          _buildSearch(),
+          const SizedBox(
+            height: 20,
+          ),
+          _buildCategories(),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  "Popular",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                Text(
+                  "See all",
+                  style: TextStyle(fontSize: 14, color: AppColor.darker),
+                ),
+              ],
             ),
-            SizedBox(height: 20,),
-            Container(
-              margin: EdgeInsets.only(left: 0),
-              child: listCategories(),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          _buildPopulars(),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Recommended",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                Text(
+                  "See all",
+                  style: TextStyle(fontSize: 14, color: AppColor.darker),
+                ),
+              ],
             ),
-            SizedBox(height: 20,),
-            Container(
-              margin: EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Popular", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                  Text("See all", style: TextStyle(fontSize: 14, color: darker),),
-                ],
-              ),
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          _buildRecommended(),
+          const SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  "Recent",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                Text(
+                  "See all",
+                  style: TextStyle(fontSize: 14, color: AppColor.darker),
+                ),
+              ],
             ),
-            SizedBox(height: 20,),
-            listPopulars(),
-            SizedBox(height: 20,),
-            Container(
-              margin: EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Recommended", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                  Text("See all", style: TextStyle(fontSize: 14, color: darker),),
-                ],
-              ),
-            ),
-            SizedBox(height: 20,),
-            listRecommended(),
-            SizedBox(height: 20,),
-            Container(
-              margin: EdgeInsets.only(left: 15, right: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text("Recent", style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),),
-                  Text("See all", style: TextStyle(fontSize: 14, color: darker),),
-                ],
-              ),
-            ),
-            SizedBox(height: 20,),
-            listRecent(),
-            SizedBox(height: 100,),
-          ],
-        ),
-      );
+          ),
+          const SizedBox(
+            height: 20,
+          ),
+          _buildRecent(),
+          const SizedBox(
+            height: 100,
+          ),
+        ],
+      ),
+    );
   }
 
-  int selectedCategory = 0;
-  listCategories(){
-    List<Widget> lists = List.generate(categories.length, 
-      (index) => CategoryItem(data: categories[index], selected: index == selectedCategory,
-        onTap: (){
+  Widget _buildSearch() {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 15),
+      child: Row(
+        children: [
+          Expanded(
+            child: CustomTextBox(
+              hint: "Search",
+              prefix: Icon(Icons.search, color: Colors.grey),
+            ),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          IconBox(
+            child: Icon(Icons.filter_list_rounded, color: Colors.white),
+            bgColor: AppColor.secondary,
+            radius: 10,
+          )
+        ],
+      ),
+    );
+  }
+
+  int _selectedCategory = 0;
+  Widget _buildCategories() {
+    List<Widget> lists = List.generate(
+      categories.length,
+      (index) => CategoryItem(
+        data: categories[index],
+        selected: index == _selectedCategory,
+        onTap: () {
           setState(() {
-            selectedCategory =  index;
+            _selectedCategory = index;
           });
         },
-      )
+      ),
     );
-    return
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.only(bottom: 5, left: 15),
-        child: Row(
-          children: lists
-        ),
-      );
-  }
-
-  listPopulars(){
-    return 
-      CarouselSlider(
-        options: CarouselOptions(
-          height: 240,
-          enlargeCenterPage: true,
-          disableCenter: true,
-          viewportFraction: .8,
-        ),
-        items: List.generate(populars.length, (index) => PropertyItem(data: populars[index]))
-      );
-  }
-
-  listRecommended(){
-    List<Widget> lists = List.generate(recommended.length, 
-      (index) => RecommendItem(data: recommended[index])
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: EdgeInsets.only(bottom: 5, left: 15),
+      child: Row(children: lists),
     );
-    
-    return
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.only(bottom: 5, left: 15),
-        child: Row(
-          children: lists
-        ),
-      );
   }
 
-  listRecent(){
-    List<Widget> lists = List.generate(recents.length, 
-      (index) => RecentItem(data: recents[index])
+  Widget _buildPopulars() {
+    return CarouselSlider(
+      options: CarouselOptions(
+        height: 240,
+        enlargeCenterPage: true,
+        disableCenter: true,
+        viewportFraction: .8,
+      ),
+      items: List.generate(
+        populars.length,
+        (index) => PropertyItem(
+          data: populars[index],
+        ),
+      ),
     );
-    
-    return
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        padding: EdgeInsets.only(bottom: 5, left: 15),
-        child: Row(
-          children: lists
-        ),
-      );
   }
 
+  Widget _buildRecommended() {
+    List<Widget> lists = List.generate(
+      recommended.length,
+      (index) => RecommendItem(
+        data: recommended[index],
+      ),
+    );
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: EdgeInsets.only(bottom: 5, left: 15),
+      child: Row(children: lists),
+    );
+  }
+
+  Widget _buildRecent() {
+    List<Widget> lists = List.generate(
+      recents.length,
+      (index) => RecentItem(
+        data: recents[index],
+      ),
+    );
+
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      padding: EdgeInsets.only(bottom: 5, left: 15),
+      child: Row(children: lists),
+    );
+  }
 }
