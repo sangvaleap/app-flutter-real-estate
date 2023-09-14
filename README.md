@@ -1,12 +1,12 @@
 # Real Estate App - Flutter
 
 - Preview video: https://youtu.be/11u0KeymAAs
-
+- Support my work: https://www.patreon.com/sangvaleap
+  
 - [My Twitter](https://twitter.com/sangvaleap)
 - [My Patreon](https://www.patreon.com/sangvaleap)
 - [My Linkedin](https://www.linkedin.com/in/sangvaleap-vanny-353b25aa/)
 
-=> To access complete source code, please join [My Patreon](https://www.patreon.com/sangvaleap)
 
 <img width="600" alt="Screen Shot 2022-01-05 at 6 43 05 PM" src="https://user-images.githubusercontent.com/86506519/148213269-45f3ba01-d059-43f2-85c4-1d31543f06f5.png">
 <img width="600" alt="Screen Shot 2022-01-05 at 6 43 24 PM" src="https://user-images.githubusercontent.com/86506519/148213286-e2f3c5f4-581f-4011-afb5-4e702f5724d7.png">
